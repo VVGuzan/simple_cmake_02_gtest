@@ -1,5 +1,5 @@
 # set minimum cmake version
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
 # project name and language
 project(hello_test_proj VERSION 0.2.1 LANGUAGES CXX)
@@ -21,3 +21,7 @@ add_executable(hello_app hello-world.cpp) # app
 # add_executable(hello_test_app hello_test.cpp) # testing
 
 target_link_libraries(hello_app mymulsum)
+
+# add_custom_command(TARGET hello_app
+#                    POST_BUILD
+#                    COMMAND ./hello_app 1.0 0.2 --output-on-failure)

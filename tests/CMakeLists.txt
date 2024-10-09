@@ -1,5 +1,5 @@
 # set minimum cmake version
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
@@ -21,6 +21,13 @@ target_link_libraries(hello_testing_app PRIVATE GTest::gtest_main mymulsum)
 
 include(GoogleTest)
 gtest_discover_tests(hello_testing_app)
+
+# add_custom_command(TARGET hello_testing_app
+#                    POST_BUILD
+#                    COMMAND ctest)
+add_custom_command(TARGET hello_testing_app
+                   POST_BUILD
+                   COMMAND ./hello_testing_app --output-on-failure)
 
 # # by default this one will be ON
 # option(ENABLE_MPI "Configure for MPI parallelization" ON)

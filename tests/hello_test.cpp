@@ -7,6 +7,11 @@ TEST(TestSuiteName, TestName) {
 }
 */
 
+int main(int argc, char **argv) {
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
+
 // Demonstrate some basic assertions.
 TEST(HelloTest, BasicAssertions) {
   // Expect two strings not to be equal.
@@ -29,6 +34,6 @@ TEST(MmultTest, Negative){
 }
 
 TEST(SsumTest, CastToInt){
-  EXPECT_EQ(1, Ssum(1, 0.2));
-  EXPECT_EQ(10, Ssum(9, 2.647));
+  EXPECT_EQ(1.2, Ssum(1, 0.2));
+  EXPECT_EQ(11.647, Ssum(9, 2.647));
 }
